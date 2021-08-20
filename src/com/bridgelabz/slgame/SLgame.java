@@ -26,17 +26,17 @@ public class SLgame {
 			switch(option) {
 			case LADDER :
 				System.out.println("The option is : " + option+"-LADDER");
-				position += dValue;
-				System.out.println("the current position is : "+position);
+				position = (position+dValue)>100?position:position+dValue;
+				System.out.println("the new position is : "+position);
 				break;
 			case SNAKE :
 				System.out.println("The option is : " + option+ "-SNAKE");
 				position -= dValue;
-				System.out.println("the current position is : "+ position);
+				System.out.println("the new position is : "+ position);
 				break;
 			default:
 				System.out.println("The option is : " + option+"-NOPLAY");
-				System.out.println("the current position is : "+ position);
+				System.out.println("the new position is : "+ position);
 				
 			}
 			System.out.println();
