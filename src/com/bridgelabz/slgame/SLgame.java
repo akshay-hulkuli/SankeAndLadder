@@ -9,24 +9,40 @@ public class SLgame {
 		
 		System.out.println("Snake and Ladder Game played with single player started at position 0");
 		
-		int dValue = ((int)Math.floor(Math.random()*100) % 6)+1;
-		System.out.println("the value of rolled die is: "+dValue);
+		int position = 0;
 		
-		int option = ((int) Math.floor(Math.random()*10) % 3);
+		while(position< 100) {
+			
+			if (position <= 0) {
+				position = 0;
+				System.out.println("RESTARTING");
+			}
 		
-		switch(option) {
-		case LADDER :
-			System.out.println("The option is : " + option+"-LADDER");
-			System.out.println("the current position is : "+dValue);
-			break;
-		case SNAKE :
-			System.out.println("The option is : " + option+ "-SNAKE");
-			System.out.println("the current position is : "+(0-dValue));
-			break;
-		default:
-			System.out.println("The option is : " + option+"-NOPLAY");
-			System.out.println("the current position is : 0");
+			int dValue = ((int)Math.floor(Math.random()*100) % 6)+1;
+			System.out.println("the value of rolled die is: "+dValue);
+			
+			int option = ((int) Math.floor(Math.random()*10) % 3);
+			
+			switch(option) {
+			case LADDER :
+				System.out.println("The option is : " + option+"-LADDER");
+				position += dValue;
+				System.out.println("the current position is : "+position);
+				break;
+			case SNAKE :
+				System.out.println("The option is : " + option+ "-SNAKE");
+				position -= dValue;
+				System.out.println("the current position is : "+ position);
+				break;
+			default:
+				System.out.println("The option is : " + option+"-NOPLAY");
+				System.out.println("the current position is : "+ position);
+				
+			}
+			System.out.println();
 		}
+		
+		System.out.println("Hurray Finished game !!");
 		
 	}
 
