@@ -7,18 +7,35 @@ public class SLgame {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("Snake and Ladder Game played with single player started at position 0");
+		System.out.println("Snake and Ladder Game played with 2 players starting at position 0");
 		
-		int position = 0, step=0;
+		int player1Pos = 0, player1Step=0, player2Pos=0,player2Step =0;
 		
-		while(position< 100) {
+		// Using boolean flags to check who's term is to play
+		boolean player1 = true, player2 = false;
+		
+		while(player1Pos< 100 && player2Pos<100) {
 			
-			if (position <= 0) {
-				position = 0;
+			if (player1 &&  player1Pos <= 0) {
+				player1Pos = 0;
 				System.out.println("RESTARTED");
 			}
-			step++;
-			System.out.println("Step : " + step);
+			if (player2 &&  player2Pos <= 0) {
+				player2Pos = 0;
+				System.out.println("RESTARTED");
+			}
+			
+			if(player1) {
+				player1Step++;
+				System.out.println("** Player 1 **");
+				System.out.println("Step : " + player1Step);
+			}
+			else {
+				player2Step++;
+				System.out.println("** Player 2 **");
+				System.out.println("Step : " + player2Step);
+			}
+			
 		
 			int dValue = ((int)Math.floor(Math.random()*100) % 6)+1;
 			System.out.println("value after rolling the die: "+dValue);
@@ -28,24 +45,42 @@ public class SLgame {
 			switch(option) {
 			case LADDER :
 				System.out.println("The option is : " + option+"-LADDER");
-				position = (position+dValue)>100?position:position+dValue;
-				System.out.println("new position is : "+position);
+				if(player1) {
+					player1Pos= (player1Pos+dValue)>100?player1Pos:player1Pos+dValue;
+					System.out.println("new position is : "+player1Pos);
+					}
+				else {
+					player2Pos= (player2Pos+dValue)>100?player2Pos:player2Pos+dValue;
+					System.out.println("new position is : "+player2Pos);
+				}
 				break;
 			case SNAKE :
 				System.out.println("The option is : " + option+ "-SNAKE");
-				position -= dValue;
-				System.out.println("new position is : "+ position);
+				if(player1) {
+					player1Pos -= dValue;
+					System.out.println("new position is : "+ player1Pos);
+				}
+				else {
+					player2Pos -= dValue;
+					System.out.println("new position is : "+ player2Pos);
+				}
 				break;
 			default:
 				System.out.println("The option is : " + option+"-NOPLAY");
-				System.out.println("new position is : "+ position);
+				if(player1) System.out.println("new position is : "+ player1Pos );
+				else  System.out.println("new position is : "+ player2Pos);
 				
 			}
+			player1 = !player1;
+			player2 = !player2;
 			System.out.println();
 		}
 		
-		System.out.println("Hurray Finished game !!");
-		System.out.println("The number of times the die was played : "+step);
+		System.out.println("Hurray "+ (player1Pos==100?"PLAYER1":"PLAYER2")+" has WON the game !!");
+		System.out.println("The number of times the die was played : "+(player1Pos==100?player1Step:player2Step));
+		System.out.println("*****POSTIONS*****");
+		System.out.println("player1 current position :" + player1Pos);
+		System.out.println("player2 current position :" + player2Pos);
 		
 	}
 
