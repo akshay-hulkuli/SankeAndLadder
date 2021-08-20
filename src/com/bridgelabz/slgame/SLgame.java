@@ -9,7 +9,7 @@ public class SLgame {
 		
 		System.out.println("Snake and Ladder Game played with single player started at position 0");
 		
-		int position = 0;
+		int position = 0, step=0;
 		
 		while(position< 100) {
 			
@@ -17,9 +17,11 @@ public class SLgame {
 				position = 0;
 				System.out.println("RESTARTED");
 			}
+			step++;
+			System.out.println("Step : " + step);
 		
 			int dValue = ((int)Math.floor(Math.random()*100) % 6)+1;
-			System.out.println("the value of rolled die is: "+dValue);
+			System.out.println("value after rolling the die: "+dValue);
 			
 			int option = ((int) Math.floor(Math.random()*10) % 3);
 			
@@ -27,22 +29,23 @@ public class SLgame {
 			case LADDER :
 				System.out.println("The option is : " + option+"-LADDER");
 				position = (position+dValue)>100?position:position+dValue;
-				System.out.println("the new position is : "+position);
+				System.out.println("new position is : "+position);
 				break;
 			case SNAKE :
 				System.out.println("The option is : " + option+ "-SNAKE");
 				position -= dValue;
-				System.out.println("the new position is : "+ position);
+				System.out.println("new position is : "+ position);
 				break;
 			default:
 				System.out.println("The option is : " + option+"-NOPLAY");
-				System.out.println("the new position is : "+ position);
+				System.out.println("new position is : "+ position);
 				
 			}
 			System.out.println();
 		}
 		
 		System.out.println("Hurray Finished game !!");
+		System.out.println("The number of times the die was played : "+step);
 		
 	}
 
