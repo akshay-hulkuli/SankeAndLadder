@@ -50,7 +50,7 @@ public class SLgame {
 					System.out.println("new position is : "+player1Position);
 					}
 				else {
-					player2Pos= (player2Position+dValue)>100?player2Position:player2Position+dValue;
+					player2Position= (player2Position+dValue)>100?player2Position:player2Position+dValue;
 					System.out.println("new position is : "+player2Position);
 				}
 				break;
