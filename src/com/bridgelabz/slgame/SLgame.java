@@ -43,7 +43,7 @@ public class SLgame {
 		}
 		
 		System.out.println("Hurray Finished game !!");
-		
+	
 	}
 
 }
