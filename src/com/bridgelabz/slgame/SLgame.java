@@ -81,7 +81,7 @@ public class SLgame {
 		System.out.println("*****POSTIONS*****");
 		System.out.println("player1 current position :" + player1Pos);
 		System.out.println("player2 current position :" + player2Pos);
-		
+	
 	}
 
 }
