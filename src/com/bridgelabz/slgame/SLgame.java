@@ -27,7 +27,7 @@ public class SLgame {
 			System.out.println("The option is : " + option+"-NOPLAY");
 			System.out.println("the current position is : 0");
 		}
-		
+	
 	}
 
 }
