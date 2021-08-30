@@ -9,5 +9,4 @@ public class SLgame {
 		System.out.println("the value of rolled die is: "+dValue);
 		
 	}
-
 }
