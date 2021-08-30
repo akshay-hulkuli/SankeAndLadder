@@ -46,7 +46,7 @@ public class SLgame {
 		
 		System.out.println("Hurray Finished game !!");
 		System.out.println("The number of times the die was played : "+step);
-		
+	
 	}
 
 }
